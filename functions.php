@@ -110,6 +110,17 @@
 			echo "<meta http-equiv='refresh' content='0;URL=password_recover.php' />";
 		}
 	}
+	
+	if($function_id == '12'){
+        include("db.php");
+        $venda_id = htmlspecialchars($_GET["venda_id"]);
+        $index = htmlspecialchars($_GET["index"]);
+        $data = htmlspecialchars($_GET["data"]);
+        $pages = htmlspecialchars($_GET["pages"]);
+        $value = mysqli_query($conn, "UPDATE `cloud`.`vendas` SET `status` = 'AC_MES_SEGUINTE', data = '". date("Y-m-d") ."' WHERE  `id`=". $venda_id ." AND `user` = '". $_COOKIE['user_coockie'] ."';");
+        $select = mysqli_query($conn, "INSERT INTO `log` (`log_text`) VALUES ('VENDA MARCADA COMO CANCELADA POR USER: ". $_COOKIE['user_coockie'] ." ID: ". $venda_id ." | ". date("Y/m/d h:i:s") ."');");
+        echo "<meta http-equiv='refresh' content='0;URL=vendas.php?data=". $data ."&index=". $index ."&pages=". $pages ."' />";
+    }
 ?>
 
 <html>

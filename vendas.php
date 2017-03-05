@@ -150,6 +150,7 @@
 										<option value='' disabled selected></option>
 										<option value='functions.php?id=4&venda_id=". $row['id'] ."&index=". $index ."&data=". $data ."&pages=". $pages ."'>CONCLUIDO</option>
 										<option value='functions.php?id=5&venda_id=". $row['id'] ."&index=". $index ."&data=". $data ."&pages=". $pages ."'>CANCELADO</option>
+										<option value='functions.php?id=12&venda_id=". $row['id'] ."&index=". $index ."&data=". $data ."&pages=". $pages ."'>MÊS SEGUINTE</option>
 									</select>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["nome"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px;'>". $row["campanha"] ."</div>
@@ -178,6 +179,21 @@
 						if($row['status'] == 'CANCELADO'){
 							echo "
 								<div style='width: 100%; float: left; margin-top: 10px; border-bottom: 1px solid; border-color: #D8D8D8; background-color: #FF6666;'>
+									<select id='vendas_diarias_status' style='opacity: 0; margin-top: 10px; width: 50px; height: 45px; float: left; line-height: 45px; background-color: #FF6666; border-color: #FF6666;'>
+										
+									</select>
+									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["nome"] ."</div>
+									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px;'>". $row["campanha"] ."</div>
+									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["servico"] ."</div>
+									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["nif"] ."</div>
+									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["call_id"] ."</div>
+									<div id='text_template' class='opacity_on' style='margin-top: 10px; margin-left: 5px; width: 300px; height: 45px; float: left; overflow: scroll; overflow-x: hidden;'>". $row["comentario"] ."</div>
+								</div>
+							";
+						}
+						if($row['status'] == 'AC_MES_SEGUINTE'){
+							echo "
+								<div style='width: 100%; float: left; margin-top: 10px; border-bottom: 1px solid; border-color: #D8D8D8; background-color: #ssfaff;'>
 									<select id='vendas_diarias_status' style='opacity: 0; margin-top: 10px; width: 50px; height: 45px; float: left; line-height: 45px; background-color: #FF6666; border-color: #FF6666;'>
 										
 									</select>

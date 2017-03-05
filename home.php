@@ -81,7 +81,7 @@
 					<?php
 						include("db.php");
 						$objectivo = mysqli_fetch_array(mysqli_query($conn, "SELECT `objectivo_bruto` FROM `users` WHERE `user` = '". $_COOKIE['user_coockie'] ."';"));
-						$value = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(pontos) FROM vendas WHERE `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `user` = '". $_COOKIE['user_coockie'] ."';"));
+						$value = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(pontos) FROM vendas WHERE status != 'AC_MES_SEGUINTE' AND `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `user` = '". $_COOKIE['user_coockie'] ."';"));
 						$percent = (($value[0] / $objectivo[0]) * 100);
 						$objectivo_em_falta = $objectivo[0] - $value[0];
 						if($objectivo_em_falta > 0){
@@ -110,8 +110,8 @@
 					<?php
 						include("db.php");
 						
-						$value = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(pontos) FROM vendas WHERE `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `user` = '". $_COOKIE['user_coockie'] ."';"));
-						$count = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) FROM vendas WHERE `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `user` = '". $_COOKIE['user_coockie'] ."';"));
+						$value = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(pontos) FROM vendas WHERE status != 'AC_MES_SEGUINTE' AND `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `user` = '". $_COOKIE['user_coockie'] ."';"));
+						$count = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) FROM vendas WHERE status != 'AC_MES_SEGUINTE' AND `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `user` = '". $_COOKIE['user_coockie'] ."';"));
 						$count_total = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) FROM vendas WHERE `data` > 0 AND `user` = '". $_COOKIE['user_coockie'] ."';"));
 						$objectivo = mysqli_fetch_array(mysqli_query($conn, "SELECT `objectivo_bruto` FROM `users` WHERE `user` = '". $_COOKIE['user_coockie'] ."';"));
 						if($value[0] == ''){
@@ -131,7 +131,7 @@
 					<?php
 						include("db.php");
 						$objectivo = mysqli_fetch_array(mysqli_query($conn, "SELECT `objectivo_bruto` FROM `users` WHERE `user` = '". $_COOKIE['user_coockie'] ."';"));
-						$value = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(pontos) FROM vendas WHERE `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `STATUS` = 'ACTIVO' AND `user` = '". $_COOKIE['user_coockie'] ."';"));
+						$value = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(pontos) FROM vendas WHERE `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `STATUS` = 'ACTIVO' OR STATUS = 'AC_MES_SEGUINTE' AND `user` = '". $_COOKIE['user_coockie'] ."';"));
 						$percent = (($value[0] / $objectivo[0]) * 100);
 						echo "<a style='margin-top: 20px; margin-left: 40px;' class='text_font'>PONTOS ACTIVOS: ". $value[0] ."</a>";
 						if($percent > 100){

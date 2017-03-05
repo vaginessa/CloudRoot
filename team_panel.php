@@ -108,13 +108,13 @@
 						}
 						
 						$sum_objectivo = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(objectivo_bruto) FROM users WHERE `equipa` = '". $equipa[0] ."';"));
-						$sum_objectivo_actual = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(pontos) FROM vendas WHERE `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `equipa` = '". $equipa[0] ."';"));
+						$sum_objectivo_actual = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(pontos) FROM vendas WHERE status != 'AC_MES_SEGUINTE' AND `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `equipa` = '". $equipa[0] ."';"));
 						if($sum_objectivo_actual[0] == ''){
 							$sum_objectivo_actual[0] = 0;
 						}
 						
 						echo "
-							<a style='margin-top: 20px;' class='text_font'>EQUIPA: ". $equipa ."</a></br></br>
+							<a style='margin-top: 20px;' class='text_font'>EQUIPA: ". $equipa[0] ."</a></br></br>
 							<a style='margin-top: 20px;' class='text_font'>OBJECTIVO BRUTO: ". $sum_objectivo[0] ."</a></br></br>
 							<a style='margin-top: 20px;' class='text_font'>OBJECTIVO ACTUAL: ". $sum_objectivo_actual[0] ."</a></br></br>
 						";
@@ -123,9 +123,9 @@
 				<div id='home_perfil_box'>
 					<?php
 						include("db.php");
-						$equipa = mysqli_fetch_array(mysqli_query("SELECT `equipa` FROM `users` WHERE `user` = '". $_COOKIE['user_coockie'] ."';"));
-						$sum_objectivo = mysqli_fetch_array(mysqli_query("SELECT SUM(objectivo_bruto) FROM users WHERE `equipa` = '". $equipa[0] ."';"));
-						$value = mysqli_fetch_array(mysqli_query("SELECT SUM(pontos) FROM vendas WHERE `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `equipa` = '". $equipa[0] ."';"));
+						$equipa = mysqli_fetch_array(mysqli_query($conn, "SELECT `equipa` FROM `users` WHERE `user` = '". $_COOKIE['user_coockie'] ."';"));
+						$sum_objectivo = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(objectivo_bruto) FROM users WHERE `equipa` = '". $equipa[0] ."';"));
+						$value = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(pontos) FROM vendas WHERE status != 'AC_MES_SEGUINTE' AND `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `equipa` = '". $equipa[0] ."';"));
 						$percent = (($value[0] / $sum_objectivo[0]) * 100);
 						$objectivo_em_falta = $sum_objectivo[0] - $value[0];
 						echo "<a style='margin-top: 20px; margin-left: 40px;' class='text_font'>OBJECTIVO EM FALTA: ". $objectivo_em_falta ."</a>";
@@ -154,8 +154,8 @@
 					while($row=mysqli_fetch_array($select))
 					{
 						echo "<div id='home_perfil_box_2'>";
-							$objectivo = mysqli_fetch_array(mysqli_query("SELECT `objectivo_bruto` FROM `users` WHERE `user` = '". $row['user'] ."';"));
-							$value = mysqli_fetch_array(mysqli_query("SELECT SUM(pontos) FROM vendas WHERE `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `user` = '". $row['user'] ."';"));
+							$objectivo = mysqli_fetch_array(mysqli_query($conn, "SELECT `objectivo_bruto` FROM `users` WHERE `user` = '". $row['user'] ."';"));
+							$value = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(pontos) FROM vendas WHERE status != 'AC_MES_SEGUINTE' AND `data` LIKE '". date("Y") ."-". date("m") ."-%' AND `user` = '". $row['user'] ."';"));
 							$percent = (($value[0] / $objectivo[0]) * 100);
 							if($value == ''){
 								$value = 0;
