@@ -193,7 +193,7 @@
 						}
 						if($row['status'] == 'AC_MES_SEGUINTE'){
 							echo "
-								<div style='width: 100%; float: left; margin-top: 10px; border-bottom: 1px solid; border-color: #D8D8D8; background-color: #ssfaff;'>
+								<div style='width: 100%; float: left; margin-top: 10px; border-bottom: 1px solid; border-color: #D8D8D8; background-color: #aafaff;'>
 									<select id='vendas_diarias_status' style='opacity: 0; margin-top: 10px; width: 50px; height: 45px; float: left; line-height: 45px; background-color: #FF6666; border-color: #FF6666;'>
 										
 									</select>
