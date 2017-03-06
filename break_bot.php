@@ -9,7 +9,7 @@
 <html>
 	<head>
 		<title>.Cloud - Cloud Bot</title>
-		<link rel="shortcut icon" type="image/png" href="media/images/icon.ico" />
+		<link rel="shortcut icon" type="image/png" href="media/images/icon.ico"/>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<script src="docs/jquery-latest.js"></script>
