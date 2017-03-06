@@ -164,7 +164,7 @@
 		<div style='clear: both; position: relative; height: 70px; background-color: #303030;'>
 			<div id="footer_text" style='color: #fff;'>
 			</br>
-				<a><font>© <?php echo date("Y"); ?> .Cloud</br></font></a>
+				<a><font>© <?php echo "2016-". date("Y"); ?> .Cloud</br></font></a>
 				<a><font>Copyright 2010-<?php echo date("Y"); ?>. Holystone CMS All Rights Reserved.</br></font></a>
 			</div>
 		</div>
