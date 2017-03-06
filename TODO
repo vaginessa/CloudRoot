@@ -1,0 +1,34 @@
+Permissions:
+
+	1 - Assistente
+	2 - Pivot
+	3 - BackOffice
+	4 - supervisão
+	5 - Gestão
+	6 - Admin
+
+#########################################
+
+	Fazer perfil de clientes
+	profile.php
+	
+		Nome:
+		Numero:
+		Nif:
+		morada:
+		data de instalação (se aplicavel)
+			alterar dara de instalação
+		notas
+		comentarios
+
+#########################################
+
+	Filtro de equipas em team_panel.php
+	
+	if permissions >= 6
+		mostra tudo
+	else
+		mostrar apenas a equipa atribuida a pessoa
+		
+##########################################
+

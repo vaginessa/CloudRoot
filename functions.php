@@ -80,7 +80,7 @@
 			echo "<meta http-equiv='refresh' content='0;URL=break_panel.php' />";
 		} else {
 			$tempo = htmlspecialchars($_GET["tempo"]);
-			$data = date("H:i:s");
+			$data = date("Y/m/d h:i:s");
 			$query = mysqli_query($conn, "INSERT INTO `breaks` (`data`, `user`, `tempo_pedido`) VALUES ('". $data ."', '". $_COOKIE['user_coockie'] ."', '". $tempo ."');");
 			$select=mysqli_query($conn, "INSERT INTO `log` (`log_text`) VALUES ('BREAK PEDIDO USER: ". $_COOKIE['user_coockie'] ." | ". date("Y/m/d h:i:s") ."');");
 			echo "<meta http-equiv='refresh' content='0;URL=break_panel.php' />";

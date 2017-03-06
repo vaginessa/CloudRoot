@@ -19,10 +19,10 @@
 				if($query[0] == 'Y'){
 					$a = mysqli_fetch_array(mysqli_query($conn, "SELECT `max_breaks` FROM `settings` WHERE `id` = '1';"));
 					$b = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) FROM `breaks` WHERE `status` = 'N';"));
-					$c = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) FROM `breaks` WHERE `autorizado` = '';"));
+					$c = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) FROM `breaks` WHERE `autorizado` IS NULL;"));
 					$d = $b[0] - $c[0];
-					if($d[0] < $a[0]){
-						$select=mysqli_query($conn, "SELECT * FROM `breaks` WHERE `autorizado` = '' ORDER BY 1 ASC LIMIT 1;");
+					if($d < $a[0]){
+						$select=mysqli_query($conn, "SELECT * FROM `breaks` WHERE `autorizado` IS NULL ORDER BY 1 ASC LIMIT 1;");
 						while($row=mysqli_fetch_array($select))
 						{
 							$time = date("Y/m/d h:i:s");
@@ -35,7 +35,7 @@
 			<?php
 				error_reporting(0);
 				include("db.php");
-				$select = mysqli_query($conn, "SELECT * FROM breaks WHERE `autorizado` <> '' AND status = 'N' AND `aceite` = 'N';");
+				$select = mysqli_query($conn, "SELECT * FROM breaks WHERE `autorizado` IS NOT NULL AND status = 'N' AND `aceite` = 'N';");
 				while($row=mysqli_fetch_array($select))
 				{
 					$selectedTime = $row['autorizado'];
