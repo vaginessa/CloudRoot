@@ -105,6 +105,16 @@
 					</div>
 					<a class='text_font letter_spacing' style='float: left; margin-left: 15px; margin-top: 5px; font-size: 125%;'>Auto-Break</a>
 				</div>
+				<div id='break_bot_max_box'>
+					<form action='functions.php?id=11' method='post'>
+						<?php
+							include("db.php");
+							$query = mysqli_fetch_array(mysqli_query($conn, "SELECT `max_breaks` FROM `settings` WHERE `id` = '1';"));
+							echo "<input id='break_insert_box' type='number' style='outline: none;' value='". $query[0] ."' onfocus=\"this.style.color='#000';\" style=\"color: #000;\" onkeypress='if(event.charCode >= 48 && event.charCode <= 57) return true'  min='0' max='10' name='max_breaks'/>";
+						?>
+						<button id='break_insert_button'>UPDATE</button>
+					</form>
+				</div>
 				<div id='body_breaks'>
 					<div style='margin-top: 30px; width: 100%; height: 40px; border-bottom: 1px solid #E0E0E0; background-color: #F8F8F8; font-size: 110%;'>
 						<div id='text_template' style='margin-top: 0px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px; border-bottom: #303030;'>HORA PEDIDO</div>

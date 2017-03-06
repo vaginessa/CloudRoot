@@ -110,7 +110,12 @@
 			echo "<meta http-equiv='refresh' content='0;URL=password_recover.php' />";
 		}
 	}
-	
+	if($function_id == '11'){
+		include("db.php");
+		$dummy_max_break = $_POST['max_breaks'];
+		$query = mysqli_query($conn, "UPDATE settings SET max_breaks = ". $dummy_max_break ." WHERE id = 1;");
+		echo "<meta http-equiv='refresh' content='0;URL=break_bot.php' />";
+	}
 	if($function_id == '12'){
         include("db.php");
         $venda_id = htmlspecialchars($_GET["venda_id"]);

@@ -671,3 +671,43 @@ select { text-align-last:center; }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
+
+#break_bot_max_box{
+	float: right;
+	height: 100%;
+	width: 200px;
+	background-color: trasparent;
+	margin-top: -60px;
+}
+
+#break_insert_box{
+	float: left;
+	margin-left: 10%;
+    width: 30%;
+    text-indent: 12px;
+    font-size: 110%;
+    height: 32px;
+    border: 1px solid #000;
+    background: transparent;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-family: myFirstFont;
+    font-weight: 300;
+}
+
+#break_insert_button{
+	float: right;
+    width: 55%;
+    font-size: 100%;
+    height: 32px;
+    border: 1px solid #666666;
+    background: transparent;
+	border-radius: 6px;
+    margin-top: 10px;
+    font-family: myFirstFont;
+    color: #000;
+    font-weight: 300;
+	opacity: 0.8;
+	transition: all 500ms;
+	cursor: pointer;
+}
