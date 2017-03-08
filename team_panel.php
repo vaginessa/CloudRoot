@@ -97,13 +97,13 @@
 						{
 							if($row['d_ferias'] >= 1){
 								$objectivo = $row['CH'] * 3.07 * ($workDays - $row['d_ferias']);
-								$query_user = mysqli_query("UPDATE `users` SET `objectivo_bruto` = '". $objectivo ."' WHERE `id` = '". $row['id'] ."'");
+								$query_user = mysqli_query($conn, "UPDATE `users` SET `objectivo_bruto` = '". $objectivo ."' WHERE `id` = '". $row['id'] ."'");
 							} else {
 								$objectivo = $row['CH'] * 3.07 * $workDays;
-								$query_user = mysqli_query("UPDATE `users` SET `objectivo_bruto` = '". $objectivo ."' WHERE `id` = '". $row['id'] ."'");
+								$query_user = mysqli_query($conn, "UPDATE `users` SET `objectivo_bruto` = '". $objectivo ."' WHERE `id` = '". $row['id'] ."'");
 							}
 							if($row['on_off'] == 'OFF'){
-								$query_user = mysqli_query("UPDATE `users` SET `objectivo_bruto` = '0' WHERE `id` = '". $row['id'] ."'");
+								$query_user = mysqli_query($conn, "UPDATE `users` SET `objectivo_bruto` = '0' WHERE `id` = '". $row['id'] ."'");
 							}
 						}
 						
