@@ -1,0 +1,118 @@
+@font-face {
+  font-family: 'myFirstFont';
+  src: url('font/Champagne_Limousines.eot'); /* IE9 Compat Modes */
+  src: url('font/Champagne_Limousines.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('font/Champagne_Limousines.woff2') format('woff2'), /* Super Modern Browsers */
+       url('font/Champagne_Limousines.woff') format('woff'), /* Pretty Modern Browsers */
+       url('font/Champagne_Limousines.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('font/Champagne_Limousines.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+.text_font{
+	font-family: myFirstFont;
+	letter-spacing: 1px;
+}
+
+html, body{
+	margin:0;
+	padding:0;
+}
+
+*::-webkit-input-placeholder {
+    color: #fff;
+}
+
+#wrapper{
+	width: 480px;
+	padding: left;
+	margin: 0 auto;
+	height: 100%;
+	background-color: #303030;
+}
+
+#index_background{
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+}
+
+#login_box{
+		width: 350px;
+		height: 350px;
+		margin: auto;
+		position: absolute;
+		top: 0; left: 0; bottom: 0; right: 0;
+		background-color: #transparent;
+		border-radius: 30px;
+		opacity: 0.25;
+		z-index: 1;
+	}
+	
+#login_box_2{
+	width: 350px;
+	height: 350px;
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+	background-color: trasparent;
+	border-radius: 30px;
+	opacity: 1;
+	z-index: 2;
+}
+	
+#login_logo{
+	width: 100px;
+	height: 100px;
+	padding: left;
+	margin: 0 auto;
+	margin-top: 25px;
+}
+	
+#input_login_username{
+	width: 250px;
+	height: 40px;
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+	position: absolute;
+	margin-left: 50px;
+	margin-top: 10px;
+	border-bottom: 3px solid #33adff;
+	text-align: left;
+	padding-left: 15px;
+}
+
+#input_login_password{
+	width: 250px;
+	height: 40px;
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+	position: absolute;
+	margin-left: 50px;
+	border-bottom: 3px solid #33adff;
+	text-align: left;
+	padding-left: 15px;
+	margin-top: 70px;
+}
+
+#login_button{
+	width: 250px;
+	height: 40px;
+	outline: none;
+	position: absolute;
+	margin-left: 50px;
+	text-align: center;
+	margin-top: 140px;
+	background-color: #ffffff;
+	border: none;
+	color: #404040;
+	font-size: 15px;
+	transition: all 500ms;
+	border-radius: 20px;
+}
+	
+#login_button:hover{
+	background-color: #99d6ff;
+	cursor: pointer;
+}
