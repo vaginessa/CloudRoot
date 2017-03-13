@@ -12,7 +12,7 @@
 			while($row=mysqli_fetch_array($select))
 			{
 				if($row['password'] == $dummy_password){
-					setcookie("user_coockie", $dummy_user, time() + (60 * 60 * 4), "/");
+					setcookie("user_coockie", $dummy_user, time() + (60 * 60 * $row['CH']), "/");
 					mysqli_query($conn, "UPDATE users SET last_update = now() WHERE username = '". $dummy_user ."';");
 					echo "<meta http-equiv='refresh' content='0;URL=home.php' />";
 				} else {
