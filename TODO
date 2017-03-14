@@ -16,6 +16,7 @@ Permissions:
 		Numero:
 		Nif:
 		morada:
+		tipo de serviço:
 		data de instalação (se aplicavel)
 			alterar dara de instalação
 		notas
@@ -32,3 +33,7 @@ Permissions:
 		
 ##########################################
 
+	adicionar os registo de vendas:
+	
+		numero
+		morada

@@ -155,7 +155,7 @@
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["nome"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px;'>". $row["campanha"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["servico"] ."</div>
-									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["nif"] ."</div>
+									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'><a href='profile.php?processo_id=". $row['id'] ."' style='text-decoration:none; color: #000;'>". $row["nif"] ."</a></div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["call_id"] ."</div>
 									<div id='text_template' class='opacity_on' style='margin-top: 10px; margin-left: 5px; width: 300px; height: 45px; float: left; overflow: scroll; overflow-x: hidden;'>". $row["comentario"] ."</div>
 								</div>
@@ -170,7 +170,7 @@
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["nome"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px;'>". $row["campanha"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["servico"] ."</div>
-									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["nif"] ."</div>
+									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'><a href='profile.php?processo_id=". $row['id'] ."' style='text-decoration:none; color: #000;'>". $row["nif"] ."</a></div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["call_id"] ."</div>
 									<div id='text_template' class='opacity_on' style='margin-top: 10px; margin-left: 5px; width: 300px; height: 45px; float: left; overflow: scroll; overflow-x: hidden;'>". $row["comentario"] ."</div>
 								</div>
@@ -185,7 +185,7 @@
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["nome"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px;'>". $row["campanha"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["servico"] ."</div>
-									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["nif"] ."</div>
+									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'><a href='profile.php?processo_id=". $row['id'] ."' style='text-decoration:none; color: #000;'>". $row["nif"] ."</a></div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["call_id"] ."</div>
 									<div id='text_template' class='opacity_on' style='margin-top: 10px; margin-left: 5px; width: 300px; height: 45px; float: left; overflow: scroll; overflow-x: hidden;'>". $row["comentario"] ."</div>
 								</div>
@@ -200,7 +200,7 @@
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["nome"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px;'>". $row["campanha"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["servico"] ."</div>
-									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["nif"] ."</div>
+									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'><a href='profile.php?processo_id=". $row['id'] ."' style='text-decoration:none; color: #000;'>". $row["nif"] ."</a></div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["call_id"] ."</div>
 									<div id='text_template' class='opacity_on' style='margin-top: 10px; margin-left: 5px; width: 300px; height: 45px; float: left; overflow: scroll; overflow-x: hidden;'>". $row["comentario"] ."</div>
 								</div>

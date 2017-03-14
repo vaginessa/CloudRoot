@@ -711,3 +711,20 @@ select { text-align-last:center; }
 	transition: all 500ms;
 	cursor: pointer;
 }
+
+#nova_nota{
+	float: left;
+	margin-left: 5%;
+    width: 90%;
+    text-indent: 12px;
+    font-size: 110%;
+    height: 235px;
+    border: 1px solid #303030;
+    background: transparent;
+    border-radius: 3px;
+    margin-top: 25px;
+    font-family: myFirstFont;
+    color: #303030;
+    font-weight: 300;
+	resize: none;
+}

@@ -29,11 +29,11 @@
 				})
 			}
 			function showDiv(elem){
-   			if(elem.value != 'TVNETVOZ:10' && elem.value != 'NETVoZ Fibra:10') {
-   				document.getElementById('novo_input_date').style.display = "none";
-   			} else {
-   				document.getElementById('novo_input_date').style.display = "";
-   			}
+				if(elem.value != 'TVNETVOZ:10' && elem.value != 'NETVoZ Fibra:10') {
+					document.getElementById('novo_input_date').style.display = "none";
+				} else {
+					document.getElementById('novo_input_date').style.display = "";
+				}
 			}
 		</script>
 	</head>
