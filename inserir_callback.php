@@ -1,11 +1,11 @@
 <?php
 	include("db.php");
-	$dummy_nome = htmlspecialchars($_GET["novo_nome"]);
-	$dummy_numero =htmlspecialchars($_GET["novo_numero"]);
-	$dummy_comentario = htmlspecialchars($_GET["novo_comentario"]);
-	$dummy_data_dummy = htmlspecialchars($_GET["novo_data"]);
+	$dummy_nome = mysqli_real_escape_string($conn, htmlspecialchars($_GET["novo_nome"]));
+	$dummy_numero = mysqli_real_escape_string($conn, htmlspecialchars($_GET["novo_numero"]));
+	$dummy_comentario = mysqli_real_escape_string($conn, htmlspecialchars($_GET["novo_comentario"]));
+	$dummy_data_dummy = mysqli_real_escape_string($conn, htmlspecialchars($_GET["novo_data"]));
 	$dummy_data = date('Y-m-d', strtotime($dummy_data_dummy));
-	$dummy_hora = htmlspecialchars($_GET["time"]);
+	$dummy_hora = mysqli_real_escape_string($conn, htmlspecialchars($_GET["time"]));
 	$query=mysqli_query($conn, "INSERT INTO `cloud`.`callbacks` (`user`, `nome`, `numero`, `comentario`, `hora`, `callback_data`) VALUES ('". $_COOKIE['user_coockie'] ."', '". $dummy_nome ."', '". $dummy_numero ."', '". $dummy_comentario ."', '". $dummy_hora ."', '". $dummy_data ."');");
 	$select=mysqli_query($conn, "INSERT INTO `log` (`log_text`) VALUES ('INSERIDO CALLBACK USER: ". $_COOKIE['user_coockie'] ." | ". date("Y/m/d h:i:s") ." | PARA O NUMERO ". $dummy_numero ."');");
 	echo "<meta http-equiv='refresh' content='0;URL=novo.php' />";

@@ -1,14 +1,14 @@
 <?php
 	include("db.php");
-	$dummy_nome = htmlspecialchars($_GET["novo_nome"]);
-	$dummy_nif =htmlspecialchars($_GET["novo_nif"]);
-	$dummy_campanha = htmlspecialchars($_GET["novo_campanha"]);
-	$dummy_call_id = htmlspecialchars($_GET["novo_call_id"]);
-	$dummy_comentario = htmlspecialchars($_GET["novo_comentario"]);
-	$dummy_data_instalacao_dummy = htmlspecialchars($_GET["novo_data"]);
+	$dummy_nome = mysqli_real_escape_string($conn, htmlspecialchars($_GET["novo_nome"]));
+	$dummy_nif = mysqli_real_escape_string($conn, htmlspecialchars($_GET["novo_nif"]));
+	$dummy_campanha = mysqli_real_escape_string($conn, htmlspecialchars($_GET["novo_campanha"]));
+	$dummy_call_id = mysqli_real_escape_string($conn, htmlspecialchars($_GET["novo_call_id"]));
+	$dummy_comentario = mysqli_real_escape_string($conn, htmlspecialchars($_GET["novo_comentario"]));
+	$dummy_data_instalacao_dummy = mysqli_real_escape_string($conn, htmlspecialchars($_GET["novo_data"]));
 	$dummy_data_instalacao = date('Y-m-d', strtotime($dummy_data_instalacao_dummy));
 	$dummy_data = date("Y-m-d");
-	$dummy_servico = htmlspecialchars($_GET["novo_servico"]);
+	$dummy_servico = mysqli_real_escape_string($conn, htmlspecialchars($_GET["novo_servico"]));
 	$arr = explode(":", $dummy_servico);
 	$equipa = mysqli_fetch_array(mysqli_query($conn, "SELECT `equipa` FROM `users` WHERE `user` = '". $_COOKIE['user_coockie'] ."';"));
 	$query=mysqli_query($conn, "INSERT INTO `cloud`.`vendas` (`user`, `equipa`, `nome`, `campanha`, `servico`, `data`, `data_instalacao`, `nif`, `call_id`, `pontos`, `comentario`) VALUES ('". $_COOKIE['user_coockie'] ."', '". $equipa[0] ."' , '". $dummy_nome ."', '". $dummy_campanha ."', '". $arr[0] ."', '". $dummy_data ."', '". $dummy_data_instalacao ."', '". $dummy_nif ."', '". $dummy_call_id ."', '". $arr[1] ."', '". $dummy_comentario ."');");
