@@ -1,7 +1,7 @@
 <?php
 	include("db.php");
 	$dummy_nota = htmlspecialchars($_GET["nova_nota_nome"]);
-	$query=mysqli_query($conn, "INSERT INTO `cloud`.`comentarios` (`nif`, `comentario`) VALUES ('". $_COOKIE['nif'] ."', '". $dummy_nota ."');");
+	$query = mysqli_query($conn, "INSERT INTO `cloud`.`comentarios` (`nif`, `comentario`) VALUES ('". $_COOKIE['nif'] ."', '". $dummy_nota ."');");
 	echo "<meta http-equiv='refresh' content='0;URL=vendas.php' />";
 	
 	if(!isset($_COOKIE['user_coockie'])) {

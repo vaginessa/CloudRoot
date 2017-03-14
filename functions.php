@@ -3,8 +3,8 @@
 	$function_id = htmlspecialchars($_GET["id"]);
 	if($function_id == 1){
 		include("db.php");
-		$dummy_user = $_POST['cloud_username'];
-		$dummy_password = md5(strtoupper($_POST['cloud_password']));
+		$dummy_user = mysqli_real_escape_string($conn, $_POST['cloud_username']);
+		$dummy_password = mysqli_real_escape_string($conn, md5(strtoupper($_POST['cloud_password'])));
 		
 		$check = mysqli_fetch_array(mysqli_query($conn, "select if(exists (SELECT * FROM users WHERE user ='". $dummy_user ."'),'Assigned', 'Available')"));
 		if($check[0] == 'Assigned'){
