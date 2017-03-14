@@ -85,7 +85,7 @@
 				?>
 			<?php
 				include("db.php");
-				$select=mysqli_query($conn, "SELECT * FROM vendas WHERE `user` = '". $_COOKIE['user_coockie'] ."' AND `data` LIKE '". date("Y-m-d") ."' ORDER BY 1 DESC;");
+				$select=mysqli_query($conn, "SELECT * FROM vendas WHERE `user` = '". $_COOKIE['user_coockie'] ."' AND STATUS != 'AC_MES_SEGUINTE' AND `data` LIKE '". date("Y-m-d") ."' ORDER BY 1 DESC;");
 					while($row=mysqli_fetch_array($select))
 					{
 						if($row['registado'] == 'N'){

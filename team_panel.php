@@ -176,8 +176,8 @@
 								</div>
 								";
 							}
-							$count = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) FROM vendas WHERE `data` = '". date("Y") ."-". date("m") ."-". date("d") ."' AND `user` = '". $row['user'] ."';"));
-							$pontosdodia = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(pontos) FROM vendas WHERE `data` = '". date("Y") ."-". date("m") ."-". date("d") ."' AND `user` = '". $row['user'] ."';"));
+							$count = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) FROM vendas WHERE `data` = '". date("Y") ."-". date("m") ."-". date("d") ."' AND STATUS != 'AC_MES_SEGUINTE' AND `user` = '". $row['user'] ."';"));
+							$pontosdodia = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(pontos) FROM vendas WHERE `data` = '". date("Y") ."-". date("m") ."-". date("d") ."' AND STATUS != 'AC_MES_SEGUINTE' AND `user` = '". $row['user'] ."';"));
 							if($pontosdodia[0] == ''){
 								$pontosdodia[0] = 0;
 							}

@@ -96,7 +96,7 @@
 						if($row['servico'] == 'TVNETVOZ' || $row['servico'] == 'NETVoZ Fibra'){
 							echo "
 								<div class='text_font' style='color: #000; height: 50px; width: 40%; position: relative; float: left; margin-top: 20px; margin-left: 5%; background-color: #f2f2f2; line-height: 50px;'>
-									<a style='padding-left: 10px; font-size: 17px;'>Instalação: </a><a style='padding-left: 10px; font-size: 20px;'>". $row['data_instalação'] ."</a>
+									<a style='padding-left: 10px; font-size: 17px;'>Instalação: </a><a style='padding-left: 10px; font-size: 20px;'>". $row['data_instalacao'] ."</a>
 								</div>
 							";
 						}							
