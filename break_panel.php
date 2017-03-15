@@ -1,8 +1,8 @@
-<?php
-	include("cloud_lib.php");
-?>
 <html>
 	<head>
+		<?php
+			include("cloud_lib.php");
+		?>
 		<title>.Cloud - Break's</title>
 		<link rel="shortcut icon" type="image/png" href="media/images/icon.ico" />
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>

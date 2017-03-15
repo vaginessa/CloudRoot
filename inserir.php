@@ -1,4 +1,7 @@
 <?php
+	if(!isset($_COOKIE['user_coockie'])) {
+		header('location: index.php');
+	}
 	include("db.php");
 	$dummy_nome = mysqli_real_escape_string($conn, htmlspecialchars($_GET["novo_nome"]));
 	$dummy_nif = mysqli_real_escape_string($conn, htmlspecialchars($_GET["novo_nif"]));
