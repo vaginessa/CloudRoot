@@ -14,12 +14,17 @@
 					if($row['password'] == $dummy_password){
 						setcookie("user_coockie", $dummy_user, time() + (60 * 60 * $row['CH']), "/");
 						mysqli_query($conn, "UPDATE users SET last_update = now() WHERE username = '". $dummy_user ."';");
+						if(isset($_COOKIE['alert'])){
+							setcookie("alert", "", time() - 60, "/");
+						}
 						echo "<meta http-equiv='refresh' content='0;URL=home.php' />";
 					} else {
+						setcookie("alert", '2', time() + 60, "/");
 						echo "<meta http-equiv='refresh' content='0;URL=index.php' />";
 					}
 				}
 			} else {
+				setcookie("alert", '2', time() + 60, "/");
 				echo "<meta http-equiv='refresh' content='0;URL=index.php' />";
 			}
 		}

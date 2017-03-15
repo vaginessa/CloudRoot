@@ -1,7 +1,7 @@
 <?php
 	include("cloud_lib.php");
 	include("db.php");
-	$processo_id = htmlspecialchars($_GET["processo_id"]);
+	$processo_id = base64_decode(htmlspecialchars($_GET["processo"]));
 	$nif = mysqli_fetch_array(mysqli_query($conn, "select `nif` FROM vendas WHERE id = ". $processo_id .""));
 	setcookie("nif", $nif[0], time() + (60 * 60), "/");
 ?>
@@ -69,7 +69,7 @@
 		<div id='body_content' style='margin-top: 50px;'>
 			<div id='wrapper' style='margin-top: 0px;'>
 				<?php
-					$processo_id = htmlspecialchars($_GET["processo_id"]);
+					$processo_id = base64_decode(htmlspecialchars($_GET["processo"]));
 					$select = mysqli_query($conn, "SELECT * FROM vendas WHERE id = '". $processo_id ."';");
 					while($row=mysqli_fetch_array($select))
 					{

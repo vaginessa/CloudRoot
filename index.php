@@ -6,6 +6,18 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	</head>
 	<body>
+		<?php
+			if(isset($_COOKIE['user_coockie'])){
+				setcookie("user_coockie", "", time() - 28800, "/");
+			}
+			if(isset($_COOKIE['alert'])){
+				$_GET['id'] = $_COOKIE['alert'];
+				include('alert_box.php');
+			} else {
+				$_GET['id'] = 1;
+				include('alert_box.php');
+			}
+		?>
 		<div id='index_background' style='background-image: url("media/images/background.jpg"); background-position: center; background-size: cover;'>
 			<div id='login_box'></div>
 			<div id='login_box_2'>

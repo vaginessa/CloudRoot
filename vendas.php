@@ -8,7 +8,7 @@
 		$count = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) FROM vendas WHERE `data` LIKE '". $data ."-%' AND `user` = '". $_COOKIE['user_coockie'] ."';"));
 		$count_id = $count[0] / 10;
 		$count_format = number_format($count_id, 0, ',', ' ');
-		header("Location: vendas.php?data=". $data ."&index=0&pages=". $count_format);
+		header("Location: vendas.php?data=". base64_encode($data) ."&index=0&pages=". base64_encode($count_format));
 	}
 ?>
 <html>
@@ -101,8 +101,8 @@
 		</div>
 			<div id='wrapper' style='height 50px; margin-top: 50px;'>
 				<div style='width: 100%; height: 25px;'>
-					<form action='search.php'>
-						<select name='dummy_mes' style='letter-spacing: 1px; margin-right: 5px; float: left; width: 100px; border-radius: 6px; border: 1px solid #F8F8F8; font-family: myFirstFont; font-weight: 200;  font-size: 95%;	text-align: center;'>
+					<form action='search.php' method='GET'>
+						<select type='hidden' name='dummy_mes' style='letter-spacing: 1px; margin-right: 5px; float: left; width: 100px; border-radius: 6px; border: 1px solid #F8F8F8; font-family: myFirstFont; font-weight: 200;  font-size: 95%;	text-align: center;'>
 							<option value='01'>Janeiro</option>
 							<option value='02'>Fevereiro</option>
 							<option value='03'>Março</option>
@@ -116,7 +116,7 @@
 							<option value='11'>Novembro</option>
 							<option value='12'>Dezembro</option>
 						</select>
-						<select name='dummy_ano' style='letter-spacing: 1px; margin-right: 5px; float: left; width: 60px; border-radius: 6px; border: 1px solid #F8F8F8; font-family: myFirstFont; font-weight: 200;  font-size: 95%;	text-align: center;'>
+						<select type='hidden' name='dummy_ano' style='letter-spacing: 1px; margin-right: 5px; float: left; width: 60px; border-radius: 6px; border: 1px solid #F8F8F8; font-family: myFirstFont; font-weight: 200;  font-size: 95%;	text-align: center;'>
 							<option value='<?php echo date("Y"); ?>'><?php echo date("Y"); ?></option>
 							<option value='<?php echo date("Y") - 1; ?>'><?php echo date("Y") - 1; ?></option>
 							<option value='<?php echo date("Y") - 2; ?>'><?php echo date("Y") - 2; ?></option>
@@ -137,9 +137,9 @@
 				</div>
 			<?php
 				include("db.php");
-				$data = htmlspecialchars($_GET["data"]);
-				$index = htmlspecialchars($_GET["index"]);
-				$pages = htmlspecialchars($_GET["pages"]);
+				$data = base64_decode(htmlspecialchars($_GET["data"]));
+				$index = base64_decode(htmlspecialchars($_GET["index"]));
+				$pages = base64_decode(htmlspecialchars($_GET["pages"]));
 				$select=mysqli_query($conn, "SELECT * FROM vendas WHERE `user` = '". $_COOKIE['user_coockie'] ."' AND `data` LIKE '". $data ."-%' ORDER BY 1 DESC LIMIT ". $index ."0, 10;");
 					while($row=mysqli_fetch_array($select))
 					{
@@ -155,7 +155,7 @@
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["nome"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px;'>". $row["campanha"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["servico"] ."</div>
-									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'><a href='profile.php?processo_id=". $row['id'] ."' style='text-decoration:none; color: #000;'>". $row["nif"] ."</a></div>
+									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'><a href='profile.php?processo=". base64_encode($row['id']) ."' style='text-decoration:none; color: #000;'>". $row["nif"] ."</a></div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["call_id"] ."</div>
 									<div id='text_template' class='opacity_on' style='margin-top: 10px; margin-left: 5px; width: 300px; height: 45px; float: left; overflow: scroll; overflow-x: hidden;'>". $row["comentario"] ."</div>
 								</div>
@@ -170,7 +170,7 @@
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["nome"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px;'>". $row["campanha"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["servico"] ."</div>
-									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'><a href='profile.php?processo_id=". $row['id'] ."' style='text-decoration:none; color: #000;'>". $row["nif"] ."</a></div>
+									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'><a href='profile.php?processo=".base64_encode($row['id']) ."' style='text-decoration:none; color: #000;'>". $row["nif"] ."</a></div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["call_id"] ."</div>
 									<div id='text_template' class='opacity_on' style='margin-top: 10px; margin-left: 5px; width: 300px; height: 45px; float: left; overflow: scroll; overflow-x: hidden;'>". $row["comentario"] ."</div>
 								</div>
@@ -185,7 +185,7 @@
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["nome"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px;'>". $row["campanha"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["servico"] ."</div>
-									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'><a href='profile.php?processo_id=". $row['id'] ."' style='text-decoration:none; color: #000;'>". $row["nif"] ."</a></div>
+									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'><a href='profile.php?processo=". base64_encode($row['id']) ."' style='text-decoration:none; color: #000;'>". $row["nif"] ."</a></div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["call_id"] ."</div>
 									<div id='text_template' class='opacity_on' style='margin-top: 10px; margin-left: 5px; width: 300px; height: 45px; float: left; overflow: scroll; overflow-x: hidden;'>". $row["comentario"] ."</div>
 								</div>
@@ -200,7 +200,7 @@
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["nome"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 150px; height: 45px; float: left; line-height: 45px;'>". $row["campanha"] ."</div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px; overflow: hidden;'>". $row["servico"] ."</div>
-									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'><a href='profile.php?processo_id=". $row['id'] ."' style='text-decoration:none; color: #000;'>". $row["nif"] ."</a></div>
+									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'><a href='profile.php?processo=". base64_encode($row['id']) ."' style='text-decoration:none; color: #000;'>". $row["nif"] ."</a></div>
 									<div id='text_template' style='margin-top: 10px; margin-left: 5px; width: 100px; height: 45px; float: left; line-height: 45px;'>". $row["call_id"] ."</div>
 									<div id='text_template' class='opacity_on' style='margin-top: 10px; margin-left: 5px; width: 300px; height: 45px; float: left; overflow: scroll; overflow-x: hidden;'>". $row["comentario"] ."</div>
 								</div>
