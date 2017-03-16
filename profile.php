@@ -78,13 +78,13 @@
 								<a style='padding-left: 10px; font-size: 17px;'>Nome: </a><a style='padding-left: 10px; font-size: 20px;'>". $row['nome'] ."</a>
 							</div>
 							<div class='text_font' style='color: #000; height: 50px; width: 40%; position: relative; float: left; margin-top: 20px; margin-left: 5%; background-color: #f2f2f2; line-height: 50px;'>
-								<a style='padding-left: 10px; font-size: 17px;'>Numero: </a>
+								<a style='padding-left: 10px; font-size: 17px;'>Numero: </a><a style='padding-left: 10px; font-size: 20px;'>". $row['num'] ."</a>
 							</div>
 							<div class='text_font' style='color: #000; height: 50px; width: 40%; position: relative; float: left; margin-top: 20px; margin-left: 5%; background-color: #f2f2f2; line-height: 50px;'>
 								<a style='padding-left: 10px; font-size: 17px;'>Nif: </a><a style='padding-left: 10px; font-size: 20px;'>". $row['nif'] ."</a>
 							</div>
 							<div class='text_font' style='color: #000; height: 50px; width: 100%; position: relative; float: left; background-color: #f2f2f2; margin-top: 20px; line-height: 50px;'>
-								<a style='padding-left: 10px; font-size: 17px;'>Morada: </a>
+								<a style='padding-left: 10px; font-size: 17px;'>Morada: </a><a style='padding-left: 10px; font-size: 20px;'>". $row['morada'] ."</a>
 							</div>
 							<div class='text_font' style='color: #000; height: 50px; width: 40%; position: relative; float: left; margin-top: 20px; margin-left: 5%; background-color: #f2f2f2; line-height: 50px;'>
 								<a style='padding-left: 10px; font-size: 17px;'>Serviço: </a><a style='padding-left: 10px; font-size: 20px;'>". $row['servico'] ."</a>

@@ -17,15 +17,15 @@
 						if(isset($_COOKIE['alert'])){
 							setcookie("alert", "", time() - 60, "/");
 						}
-						echo "<meta http-equiv='refresh' content='0;URL=home.php' />";
+						header('location: home.php');
 					} else {
 						setcookie("alert", '2', time() + 60, "/");
-						echo "<meta http-equiv='refresh' content='0;URL=index.php' />";
+						header('location: index.php');
 					}
 				}
 			} else {
 				setcookie("alert", '2', time() + 60, "/");
-				echo "<meta http-equiv='refresh' content='0;URL=index.php' />";
+				header('location: index.php');
 			}
 		}
 	if(!isset($_COOKIE['user_coockie']) && $function_id != '1') {

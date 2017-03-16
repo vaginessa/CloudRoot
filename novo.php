@@ -97,7 +97,9 @@
 					<div id='novo_form'>
 						<div id='novo_left_box'>
 							<input id='novo_input_nome' style='text-align: center; letter-spacing: 1px;' type='text' placeholder='Nome do Cliente' name='novo_nome' autocomplete="off" required>
+							<input id='novo_input_nome' style='text-align: center; letter-spacing: 1px;' type='text' placeholder='Numero de Contacto' name='novo_num' maxlength='9' autocomplete="off" required>
 							<input id='novo_input_nome' style='text-align: center; letter-spacing: 1px;' type='text' placeholder='Numero de Contribuinte' name='novo_nif' maxlength='9' autocomplete="off" required>
+							<input id='novo_input_nome' style='text-align: center; letter-spacing: 1px;' type='text' placeholder='Morada' name='novo_morada' autocomplete="off" required>
 							<select id='novo_input_nome' name='novo_servico' style='letter-spacing: 1px;' onchange="showDiv(this)">
 								<option value="" disabled selected>Serviços</option>
 								<?php
